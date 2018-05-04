@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { HeroComponent } from './hero/hero.component';
 
 const routes: Routes = [
 	{
@@ -14,6 +15,10 @@ const routes: Routes = [
 	{
 		path: 'home',
 		component: AppComponent
+	},
+	{
+		path: 'hero',
+		component: HeroComponent
 	},
 	{
 		path: 'login',

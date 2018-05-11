@@ -1,0 +1,12 @@
+.row{
+    text-align: center; 
+    font-family: 'Viner Hand ITC', sans-serif;
+}
+div.polaroid {
+    border: 1px ridge; 
+    margin: 15px;
+    box-shadow: 0 4px 8px 0 rgba(235, 110, 110, 0.151), 0 6px 20px 0 rgba(69, 255, 193, 0.171);
+}
+img{
+    width: 80%
+}

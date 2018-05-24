@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
+// tslint:disable-next-line:import-blacklist
 import 'rxjs/Rx';
 
 import { RecipeService } from '../recipes/recipe.service';
@@ -13,16 +14,17 @@ export class DataStorageService {
               private authService: AuthService) {
   }
 
-  storeRecipes() {
+  storeMenuRecipes() {
     const token = this.authService.getToken();
 
-    return this.http.put('https://ng-recipe-book.firebaseio.com/recipes.json?auth=' + token, this.recipeService.getRecipes());
+    // tslint:disable-next-line:max-line-length
+    return this.http.put('https://course-project-5acd8.firebaseio.com/recipes.json?auth=' + token, this.recipeService.getRecipes()); // getMenuRecipes?
   }
 
-  getRecipes() {
+  getMenuRecipes() {
     const token = this.authService.getToken();
 
-    this.http.get('https://ng-recipe-book.firebaseio.com/recipes.json?auth=' + token)
+    this.http.get('https://course-project-5acd8.firebaseio.com/recipes.json?auth=' + token)
       .map(
         (response: Response) => {
           const recipes: Recipe[] = response.json();
@@ -36,7 +38,7 @@ export class DataStorageService {
       )
       .subscribe(
         (recipes: Recipe[]) => {
-          this.recipeService.setRecipes(recipes);
+          this.recipeService.setRecipes(recipes); // setMenuRecipes?
         }
       );
   }

@@ -10,11 +10,11 @@ import { AuthService } from '../../auth/auth.service';
 })
 export class HeaderComponent {
   constructor(private dataStorageService: DataStorageService,
-              private authService: AuthService) {
+    private authService: AuthService) {
   }
 
   onSaveData() {
-    this.dataStorageService.storeRecipes()
+    this.dataStorageService.storeMenuRecipes()
       .subscribe(
         (response: Response) => {
           console.log(response);
@@ -23,7 +23,7 @@ export class HeaderComponent {
   }
 
   onFetchData() {
-    this.dataStorageService.getRecipes();
+    this.dataStorageService.getMenuRecipes();
   }
 
   onLogout() {

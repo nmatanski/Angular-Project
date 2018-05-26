@@ -10,7 +10,6 @@ html {
 .bgimg-2,
 .bgimg-3 {
   position: relative;
-  opacity: 0.65;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -20,20 +19,23 @@ html {
 .bgimg-1 {
   background-image: url("../../../assets/pictures/img_parallax.png");
   min-height: 85%;
+  opacity: 0.85;
 }
 
 .bgimg-2 {
   background-image: url("../../../assets/pictures/img_parallax2.png");
   min-height: 71%;
+  opacity: 0.75;
 }
 
 .bgimg-3 {
   background-image: url("../../../assets/pictures/img_parallax3.png");
   min-height: 68%;
+  opacity: 0.65;
 }
 
 @font-face {
-  font-family: 'CandyFont';
+  font-family: 'MaryKate';
   src: url('../../../assets/fonts/MaryKate.ttf');
 }
 
@@ -43,7 +45,7 @@ html {
   top: 50%;
   width: 100%;
   text-align: center;
-  font-family: 'CandyFont';
+  font-family: 'MaryKate';
 }
 
 .caption span.border {

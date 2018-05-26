@@ -7,10 +7,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { AuthModule } from './auth/auth.module';
 import { CoreModule } from './core/core.module';
+import { MenuComponent } from './menu/menu.component';
+import { MealStartComponent } from './menu/meal-start/meal-start.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    // MenuComponent,
+    // MealStartComponent
   ],
   imports: [
     BrowserModule,

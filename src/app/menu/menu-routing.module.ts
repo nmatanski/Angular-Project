@@ -7,14 +7,16 @@ import { AuthGuard } from '../auth/auth-guard.service';
 
 import { MenuComponent } from './menu.component';
 import { MealStartComponent } from './meal-start/meal-start.component';
+import { MealEditComponent } from './meal-edit/meal-edit.component';
+import { MealDetailComponent } from './meal-detail/meal-detail.component';
 
 const menuRoutes: Routes = [
     {
         path: '', component: MenuComponent, children: [
             { path: '', component: MealStartComponent },
-            // { path: 'new', component: RecipeEditComponent, canActivate: [AuthGuard] },
-            // { path: ':id', component: RecipeDetailComponent },
-            // { path: ':id/edit', component: RecipeEditComponent, canActivate: [AuthGuard] },
+            { path: 'new', component: MealEditComponent, canActivate: [AuthGuard] },
+            { path: ':id', component: MealDetailComponent },
+            { path: ':id/edit', component: MealEditComponent, canActivate: [AuthGuard] },
         ]
     },
 ];

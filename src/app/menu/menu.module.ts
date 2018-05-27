@@ -15,6 +15,7 @@ import { MenuRoutingModule } from './menu-routing.module';
 import { MealDetailComponent } from './meal-detail/meal-detail.component';
 import { MenuListComponent } from './menu-list/menu-list.component';
 import { MenuItemComponent } from './menu-list/menu-item/menu-item.component';
+import { MealEditComponent } from './meal-edit/meal-edit.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { MenuItemComponent } from './menu-list/menu-item/menu-item.component';
     MealDetailComponent,
     MenuListComponent,
     MenuItemComponent,
+    MealEditComponent,
     // RecipeListComponent,
     // RecipeEditComponent,
     // RecipeDetailComponent,

@@ -14,6 +14,7 @@ import { MealStartComponent } from './menu/meal-start/meal-start.component';
 @NgModule({
   declarations: [
     AppComponent,
+    // FooterComponent,
     // MenuComponent,
     // MealStartComponent
   ],

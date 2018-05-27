@@ -4,13 +4,13 @@ import { HomeComponent } from './core/home/home.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'menu', loadChildren: './menu/menu.module#MenuModule'},
+  { path: 'menu', loadChildren: './menu/menu.module#MenuModule' },
   // { path: 'shopping-list', component: ShoppingListComponent }
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(appRoutes, {preloadingStrategy: PreloadAllModules})
+    RouterModule.forRoot(appRoutes, { preloadingStrategy: PreloadAllModules })
   ],
   exports: [RouterModule]
 })

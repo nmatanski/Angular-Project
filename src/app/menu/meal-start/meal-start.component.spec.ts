@@ -8,9 +8,9 @@ describe('MealStartComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MealStartComponent ]
+      declarations: [MealStartComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

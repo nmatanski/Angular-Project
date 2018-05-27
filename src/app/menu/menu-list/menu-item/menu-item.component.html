@@ -1,0 +1,10 @@
+<a style="cursor: pointer;" [routerLink]="[index]" routerLinkActive="active" class="list-group-item clearfix">
+  <div class="pull-left">
+    <h4 class="list-group-item-heading">{{ meal.name }}</h4>
+    <p class="list-group-item-text">{{ meal.description }}</p>
+  </div>
+  <span class="col-lg-12 col-lg-offset-5">
+    <img [src]="meal.imagePath" alt="{{ meal.name }}" class="img-responsive" style="max-height: 50px;">
+  </span>
+</a>
+

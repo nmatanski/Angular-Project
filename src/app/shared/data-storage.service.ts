@@ -10,8 +10,8 @@ import { MealService } from './../menu/meal.service';
 @Injectable()
 export class DataStorageService {
   constructor(private http: Http,
-              private mealService: MealService,
-              private authService: AuthService) {
+    private mealService: MealService,
+    private authService: AuthService) {
   }
 
   storeMenu() {

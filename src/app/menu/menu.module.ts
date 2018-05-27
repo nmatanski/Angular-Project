@@ -12,11 +12,17 @@ import { SharedModule } from '../shared/shared.module';
 import { MenuComponent } from './menu.component';
 import { MealStartComponent } from './meal-start/meal-start.component';
 import { MenuRoutingModule } from './menu-routing.module';
+import { MealDetailComponent } from './meal-detail/meal-detail.component';
+import { MenuListComponent } from './menu-list/menu-list.component';
+import { MenuItemComponent } from './menu-list/menu-item/menu-item.component';
 
 @NgModule({
   declarations: [
     MenuComponent,
     MealStartComponent,
+    MealDetailComponent,
+    MenuListComponent,
+    MenuItemComponent,
     // RecipeListComponent,
     // RecipeEditComponent,
     // RecipeDetailComponent,
@@ -29,4 +35,4 @@ import { MenuRoutingModule } from './menu-routing.module';
     SharedModule
   ]
 })
-export class MenuModule {}
+export class MenuModule { }

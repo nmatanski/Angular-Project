@@ -11,13 +11,14 @@ export class MealService {
 
   private menu: Meal[] = [
     new Meal(
-      'Tasty Schnitzel',
-      'A super-tasty Schnitzel - just awesome!',
-      'https://upload.wikimedia.org/wikipedia/commons/7/72/Schnitzel.JPG',
+      'Strawberry Eton Mess with Matcha Meringues and Yuzu',
+      "The eton mess is traditional british dessert, but combined with the matcha green tea and the yuzu citrus fruit from Japan makes it the best fusuion style dessert you'll ever try.",
+      'https://i.imgur.com/DA43fYA.jpg'
     ),
-    new Meal('Big Fat Burger',
-      'What else you need to say?',
-      'https://upload.wikimedia.org/wikipedia/commons/b/be/Burger_King_Angus_Bacon_%26_Cheese_Steak_Burger.jpg',
+    new Meal(
+      'Test Name',
+      'Test description',
+      'https://i.imgur.com/DA43fYA.jpg'
     )
   ];
 

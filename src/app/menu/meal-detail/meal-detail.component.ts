@@ -1,8 +1,13 @@
+import { ShoppingCart } from './../../shopping-cart/shopping-cart.model';
+import { ShoppingCartService } from './../../shopping-cart/shopping-cart.service';
 import { MealService } from './../meal.service';
 import { Component, OnInit } from '@angular/core';
 import { Meal } from '../meal.model';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { AuthService } from '../../auth/auth.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { DataStorageService } from '../../shared/data-storage.service';
+import { Response } from '@angular/http';
 
 @Component({
   selector: 'app-meal-detail',
@@ -13,8 +18,19 @@ export class MealDetailComponent implements OnInit {
 
   meal: Meal;
   id: number;
+  public cart: ShoppingCart = new ShoppingCart (
+    '',
+    '',
+    '',
+    null
+  );
+  flag = false;
+  editMode = false;
+  orderInfoForm: FormGroup;
 
   constructor(private mealService: MealService,
+    private cartService: ShoppingCartService,
+    private dataStorageService: DataStorageService,
     private route: ActivatedRoute,
     private router: Router, private authService: AuthService) {
   }
@@ -33,6 +49,53 @@ export class MealDetailComponent implements OnInit {
       );
   }
 
+  onSubmit() {
+    // const newRecipe = new Recipe(
+    //   this.recipeForm.value['name'],
+    //   this.recipeForm.value['description'],
+    //   this.recipeForm.value['imagePath'],
+    //   this.recipeForm.value['ingredients']);
+    if (this.editMode) {
+      this.cartService.updateCart(this.orderInfoForm.value);
+    } else {
+      this.cartService.addNewCart(this.orderInfoForm.value);
+    }
+
+    this.dataStorageService.storeOrders()
+    .subscribe(
+      (response: Response) => {
+        console.log(response);
+      }
+    );
+
+    this.onCancel();
+  }
+
+  onCancel() {
+    this.router.navigate(['../'], { relativeTo: this.route });
+  }
+
+  // private initForm() {
+  //   let orderName: String = '';
+  //   let orderAddress: String = '';
+  //   let orderContactInfo: String = '';
+  //   // let recipeIngredients = new FormArray([]);
+
+  //   if (this.editMode) {
+  //     const order = this.cartService.getCart(this.id);
+  //     orderName = order.name;
+  //     orderAddress = order.address;
+  //     orderContactInfo = order.email;
+  //   }
+
+  //   this.orderInfoForm = new FormGroup({
+  //     'name': new FormControl(orderName, Validators.required),
+  //     'address': new FormControl(orderAddress, Validators.required),
+  //     'contactInfo': new FormControl(orderContactInfo, Validators.required)
+  //     // 'ingredients': recipeIngredients
+  //   });
+  // }
+
   // onAddToShoppingList() {
   //   this.mealService.addIngredientsToShoppingList(this.meal.ingredients);
   // }
@@ -45,6 +108,13 @@ export class MealDetailComponent implements OnInit {
   onDeleteMeal() {
     this.mealService.deleteMeal(this.id);
     this.router.navigate(['/menu']);
+  }
+
+  addToCart() {
+    if (this.cart.name === '') {
+      this.flag = true;
+      return;
+    }
   }
 
 }

@@ -13,12 +13,14 @@ export class MealService {
     new Meal(
       'Strawberry Eton Mess with Matcha Meringues and Yuzu',
       "The eton mess is traditional british dessert, but combined with the matcha green tea and the yuzu citrus fruit from Japan makes it the best fusuion style dessert you'll ever try.",
-      'https://i.imgur.com/DA43fYA.jpg'
+      'https://i.imgur.com/DA43fYA.jpg',
+      10
     ),
     new Meal(
       'Test Name',
       'Test description',
-      'https://i.imgur.com/DA43fYA.jpg'
+      'https://i.imgur.com/DA43fYA.jpg',
+      5
     )
   ];
 

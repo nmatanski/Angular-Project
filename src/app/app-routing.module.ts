@@ -1,3 +1,4 @@
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { HomeComponent } from './core/home/home.component';
@@ -5,7 +6,7 @@ import { HomeComponent } from './core/home/home.component';
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'menu', loadChildren: './menu/menu.module#MenuModule' },
-  // { path: 'shopping-list', component: ShoppingListComponent }
+  { path: 'cart', component: ShoppingCartComponent }
 ];
 
 @NgModule({

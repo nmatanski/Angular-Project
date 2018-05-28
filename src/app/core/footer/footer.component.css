@@ -9,7 +9,8 @@ body {
 }
 
 .footer {
-  color: rgb(2, 102, 60)
+  color: rgb(2, 102, 60);
+  bottom: 0;
 }
 
 body>.container {

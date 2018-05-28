@@ -1,7 +1,9 @@
+import { DataStorageService } from './../../shared/data-storage.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormArray, Validators, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { MealService } from '../meal.service';
+import { Response } from '@angular/http';
 
 @Component({
   selector: 'app-meal-edit',
@@ -16,6 +18,7 @@ export class MealEditComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
     private mealService: MealService,
+    private dataStorageService: DataStorageService,
     private router: Router) {
   }
 
@@ -41,8 +44,17 @@ export class MealEditComponent implements OnInit {
     } else {
       this.mealService.addMeal(this.mealForm.value);
     }
+
+    this.dataStorageService.storeMenu()
+    .subscribe(
+      (response: Response) => {
+        console.log(response);
+      }
+    );
+
     this.onCancel();
   }
+
 
   // onAddIngredient() {
   //   (<FormArray>this.mealForm.get('ingredients')).push(
@@ -72,6 +84,7 @@ export class MealEditComponent implements OnInit {
     let mealName = '';
     let mealImagePath = '';
     let mealDescription = '';
+    let mealPrice = 0;
     // let recipeIngredients = new FormArray([]);
 
     if (this.editMode) {
@@ -79,6 +92,7 @@ export class MealEditComponent implements OnInit {
       mealName = meal.name;
       mealImagePath = meal.imagePath;
       mealDescription = meal.description;
+      mealPrice = meal.price;
       // if (meal['ingredients']) {
       //   for (let ingredient of meal.ingredients) {
       //     recipeIngredients.push(
@@ -97,7 +111,8 @@ export class MealEditComponent implements OnInit {
     this.mealForm = new FormGroup({
       'name': new FormControl(mealName, Validators.required),
       'imagePath': new FormControl(mealImagePath, Validators.required),
-      'description': new FormControl(mealDescription, Validators.required)
+      'description': new FormControl(mealDescription, Validators.required),
+      'price': new FormControl(mealPrice, Validators.required)
       // 'ingredients': recipeIngredients
     });
   }

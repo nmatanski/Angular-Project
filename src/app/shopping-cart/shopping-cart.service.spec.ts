@@ -1,3 +1,4 @@
+import { AngularFireAuth } from 'angularfire2/auth';
 import { TestBed, inject } from '@angular/core/testing';
 
 import { ShoppingCartService } from './shopping-cart.service';
@@ -5,7 +6,10 @@ import { ShoppingCartService } from './shopping-cart.service';
 describe('ShoppingCartService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [ShoppingCartService]
+      providers: [
+        ShoppingCartService,
+        AngularFireAuth
+      ]
     });
   });
 

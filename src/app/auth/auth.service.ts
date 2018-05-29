@@ -49,6 +49,10 @@ export class AuthService {
   }
 
   getEmailOfAuthenticatedUser() {
-    return firebase.auth().currentUser.email;
+    if (this.token === null) {
+      console.log('Token is null');
+      return '!@#$%^&*^%$#@!$%^&*';
+    }
+    return firebase.auth().currentUser === null ? '!@#$%^&*^%$#@!$%^&*' : firebase.auth().currentUser.email;
   }
 }

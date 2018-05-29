@@ -14,8 +14,9 @@
       </a> -->
     </ul>
     <div class="row" *ngIf="isAuthenticated()">
-      <div class="col-xs-12" *ngFor="let order of orders"> test {{order.email}}
-        <div *ngIf="isAuthenticated() === order.email != getEmail()">
+      <div class="col-xs-12" *ngFor="let order of orders">
+        (test) Order's Email: {{order.email}} 
+        <div *ngIf="order.email != getEmail()">
           <div class="row">
             <div class="col-xs-12">
               Name: {{order.name}}

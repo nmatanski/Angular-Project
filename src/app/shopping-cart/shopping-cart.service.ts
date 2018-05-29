@@ -9,7 +9,7 @@ import { Meal } from '../menu/meal.model';
 export class ShoppingCartService {
 
   cartsChanged = new Subject<ShoppingCart[]>();
-  public carts: ShoppingCart[] = [new ShoppingCart('test', 'testaddress', 'nmatanski@abv.bg', [
+  public carts: ShoppingCart[] = [new ShoppingCart('test', 'testaddress', 'someoneelse@abv.bg', [
     new Meal(
       'Test Name',
       'Test description',

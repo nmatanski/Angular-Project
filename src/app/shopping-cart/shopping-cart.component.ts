@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataStorageService } from '../shared/data-storage.service';
 import { Response } from '@angular/http';
 import { AuthService } from '../auth/auth.service';
+// import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -15,7 +16,9 @@ export class ShoppingCartComponent implements OnInit {
   public orders: ShoppingCart[] = [];
   constructor(private dataStorageService: DataStorageService,
   private shoppingCartService: ShoppingCartService,
-  private authService: AuthService) { }
+  private authService: AuthService,
+  // private angularFireAuth: AngularFireAuth
+) { }
 
   ngOnInit() {
 
@@ -40,6 +43,8 @@ export class ShoppingCartComponent implements OnInit {
 
   onFetchData() {
     this.dataStorageService.getOrdersWithoutToken();
+    // test
+    this.getEmail();
   }
 
   isAuthenticated() {
@@ -48,12 +53,19 @@ export class ShoppingCartComponent implements OnInit {
 
   getEmail() {
     if (!this.isAuthenticated()) {
+      console.log(this.authService.token === null ? 'the token is null' : 'the token is not null');
+      console.log('getEmail with token != null: ');
+      console.log(this.authService.getEmailOfAuthenticatedUser());
+      
+      
       return '!@#$%^&*^%$#@!#$%^&*^%$#@';
     }
     console.log('getEmail: ');
-    
-    console.log(this.authService.getEmailOfAuthenticatedUser());
-    return this.authService.getEmailOfAuthenticatedUser();
+    const temp = this.authService.getEmailOfAuthenticatedUser();
+    console.log(temp);
+    // console.log('getEmail: ');
+    // console.log(this.angularFireAuth.auth.currentUser.email);
+    return temp;
   }
 
 }

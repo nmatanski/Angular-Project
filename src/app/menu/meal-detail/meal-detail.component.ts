@@ -32,7 +32,9 @@ export class MealDetailComponent implements OnInit {
     private cartService: ShoppingCartService,
     private dataStorageService: DataStorageService,
     private route: ActivatedRoute,
-    private router: Router, private authService: AuthService) {
+    private router: Router,
+    private authService: AuthService) {
+      this.cartService.addNewCart(new ShoppingCart ('', '', this.authService.getEmailOfAuthenticatedUser(), this.cart.cart));
   }
 
   isAuthenticated() {
@@ -110,11 +112,18 @@ export class MealDetailComponent implements OnInit {
     this.router.navigate(['/menu']);
   }
 
-  addToCart() {
+  addToCart(meal: Meal) {
+    if (!this.isAuthenticated()) {
+      this.router.navigate(['/signin']);
+      return;
+    }
     if (this.cart.name === '') {
       this.flag = true;
       return;
     }
+    this.cart.cart.push(meal);
+    this.cartService.updateCart(this.cart);
+    // this.cartService.addNewCart(new ShoppingCart ('', '', this.authService.getEmailOfAuthenticatedUser(), this.cart.cart));
   }
 
 }

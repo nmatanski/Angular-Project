@@ -1,3 +1,4 @@
+import { AngularFireAuth } from 'angularfire2/auth';
 import { MealService } from './../menu/meal.service';
 import { DataStorageService } from './../shared/data-storage.service';
 import { NgModule } from '@angular/core';
@@ -8,6 +9,7 @@ import { SharedModule } from '../shared/shared.module';
 import { AppRoutingModule } from '../app-routing.module';
 import { AuthService } from '../auth/auth.service';
 import { FooterComponent } from './footer/footer.component';
+import { FirebaseAuth } from '@firebase/auth-types';
 // import { AuthService } from '../auth/auth.service';
 // import { DataStorageService } from '../shared/data-storage.service';
 // import { RecipeService } from '../recipes/recipe.service';
@@ -31,11 +33,8 @@ import { FooterComponent } from './footer/footer.component';
   providers: [
     DataStorageService,
     MealService,
-    AuthService
-    // ShoppingListService,
-    // RecipeService,
-    // DataStorageService,
-    // AuthService
+    AuthService,
+    AngularFireAuth
   ]
 })
 export class CoreModule { }

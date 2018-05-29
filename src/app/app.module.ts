@@ -10,6 +10,10 @@ import { CoreModule } from './core/core.module';
 import { MenuComponent } from './menu/menu.component';
 import { MealStartComponent } from './menu/meal-start/meal-start.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireModule } from 'angularfire2';
+import * as firebase from 'firebase';
+
 
 
 @NgModule({
@@ -28,6 +32,9 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
     AuthModule,
     CoreModule
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [
+    AngularFireAuth
+  ]
 })
 export class AppModule { }

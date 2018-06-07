@@ -56,8 +56,8 @@ export class ShoppingCartComponent implements OnInit {
       console.log(this.authService.token === null ? 'the token is null' : 'the token is not null');
       console.log('getEmail with token != null: ');
       console.log(this.authService.getEmailOfAuthenticatedUser());
-      
-      
+
+
       return '!@#$%^&*^%$#@!#$%^&*^%$#@';
     }
     console.log('getEmail: ');

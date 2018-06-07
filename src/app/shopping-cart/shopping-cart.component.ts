@@ -14,9 +14,11 @@ import { AuthService } from '../auth/auth.service';
 export class ShoppingCartComponent implements OnInit {
 
   public orders: ShoppingCart[] = [];
+  public loggedUser: String;
+
   constructor(private dataStorageService: DataStorageService,
   private shoppingCartService: ShoppingCartService,
-  private authService: AuthService,
+  private authService: AuthService
   // private angularFireAuth: AngularFireAuth
 ) { }
 
@@ -39,33 +41,37 @@ export class ShoppingCartComponent implements OnInit {
     }
     console.log('onInit local cart: ');
     console.log(this.orders);
+
+    this.loggedUser = sessionStorage.getItem('currentUser');
+    console.log('welcome: ' + this.loggedUser);
+
   }
 
   onFetchData() {
     this.dataStorageService.getOrdersWithoutToken();
     // test
-    this.getEmail();
+    // this.getEmail();
   }
 
   isAuthenticated() {
     return this.authService.isAuthenticated();
   }
 
-  getEmail() {
-    if (!this.isAuthenticated()) {
-      console.log(this.authService.token === null ? 'the token is null' : 'the token is not null');
-      console.log('getEmail with token != null: ');
-      console.log(this.authService.getEmailOfAuthenticatedUser());
+  // getEmail() {
+  //   if (!this.isAuthenticated()) {
+  //     console.log(this.authService.token === null ? 'the token is null' : 'the token is not null');
+  //     console.log('getEmail with token != null: ');
+  //     console.log(this.authService.getEmailOfAuthenticatedUser());
 
 
-      return '!@#$%^&*^%$#@!#$%^&*^%$#@';
-    }
-    console.log('getEmail: ');
-    const temp = this.authService.getEmailOfAuthenticatedUser();
-    console.log(temp);
-    // console.log('getEmail: ');
-    // console.log(this.angularFireAuth.auth.currentUser.email);
-    return temp;
-  }
+  //     return '!@#$%^&*^%$#@!#$%^&*^%$#@';
+  //   }
+  //   console.log('getEmail: ');
+  //   const temp = this.authService.getEmailOfAuthenticatedUser();
+  //   console.log(temp);
+  //   // console.log('getEmail: ');
+  //   // console.log(this.angularFireAuth.auth.currentUser.email);
+  //   return temp;
+  // }
 
 }

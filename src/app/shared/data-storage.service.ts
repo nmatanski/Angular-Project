@@ -11,6 +11,7 @@ import { ShoppingCart } from '../shopping-cart/shopping-cart.model';
 
 @Injectable()
 export class DataStorageService {
+
   constructor(private http: Http,
     private mealService: MealService,
     private cartService: ShoppingCartService,
@@ -118,6 +119,8 @@ export class DataStorageService {
         this.cartService.setCarts(carts);
       }
     );
+    console.log(this.cartService.carts);
+
   }
 
 }

@@ -2,34 +2,26 @@
   <div class="col-xs-10" style="padding-top: 50px; padding-left: 50px;">
     <!-- <app-shopping-edit></app-shopping-edit> -->
     <hr>
-    <ul class="list-group">
+    <!-- <ul class="list-group">
       <a class="list-group-item" style="cursor: pointer" (click)="onFetchData()">View Cart</a>
-      <!-- <a
-        class="list-group-item"
-        style="cursor: pointer"
-        *ngFor="let ingredient of ingredients; let i = index"
-        (click)="onEditItem(i)"
-      >
-        {{ ingredient.name }} ({{ ingredient.amount }})
-      </a> -->
-    </ul>
+    </ul> -->
+    <span *ngIf="loggedUser!='null'">(test) {{loggedUser}}'s Cart:</span>
     <div class="row" *ngIf="isAuthenticated()">
       <div class="col-xs-12" *ngFor="let order of orders">
-        (test) Order's Email: {{order.email}} 
-        <div *ngIf="order.email != getEmail()">
+        <div *ngIf="order.email == loggedUser">
           <div class="row">
             <div class="col-xs-12">
-              Name: {{order.name}}
+              Ordered by {{order.name}}
             </div>
           </div>
           <div class="row">
             <div class="col-xs-12">
-              Address: {{order.address}}
+              Delivery Address: {{order.address}}
             </div>
           </div>
           <div class="row">
             <div class="col-xs-12">
-              Email: {{order.email}}
+              Ordered by Email: {{order.email}}
             </div>
           </div>
 
@@ -49,7 +41,7 @@
               <div class="col-xs-12" style="margin-bottom: 15px;">
                 {{ cart.description }}
               </div>
-              <div class="col-xs-4">Price: {{cart.price}}</div>
+              <div class="col-xs-4">Price: ${{cart.price}}</div>
 
             </div>
           </div>

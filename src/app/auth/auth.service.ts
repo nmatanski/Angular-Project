@@ -16,10 +16,12 @@ export class AuthService {
   }
 
   signinUser(email: string, password: string) {
+    let isOK = true;
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then(
         response => {
           this.router.navigate(['/']);
+          sessionStorage.setItem('currentUser', response.user['email']);
           firebase.auth().currentUser.getIdToken()
             .then(
               (token: string) => this.token = token
@@ -27,13 +29,18 @@ export class AuthService {
         }
       )
       .catch(
-        error => console.log(error)
+        // error => console.log(error)
+        // error => isOK = false
+        error => alert('Wrong Credentials')
       );
+
+      return isOK;
   }
 
   logout() {
     firebase.auth().signOut();
     this.token = null;
+    sessionStorage.setItem('currentUser', null);
   }
 
   getToken() {

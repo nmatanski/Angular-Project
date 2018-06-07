@@ -32,7 +32,7 @@
     {{ meal.description }}
   </div>
   <div class="col-xs-4">Price: {{meal.price}}</div>
-  <div class="col-xs-8"><button type="submit" class="btn btn-success" (click)="addToCart(meal)">Add to Cart</button></div>
+  <div class="col-xs-8"><button type="submit" class="btn btn-success" (click)="addToCart(meal)"><span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart</button></div>
   
   <!-- <div class="col-xs-12" *ngIf="!flag">
     <form [formGroup]="orderInfoForm" (ngSubmit)="onSubmit()">

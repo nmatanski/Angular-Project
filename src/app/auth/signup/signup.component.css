@@ -6,3 +6,8 @@
     border-bottom-left-radius: 300px;
     border-bottom-right-radius: 300px;
 }
+
+@font-face {
+    font-family: 'TimeBurnerBold';
+    src: url('../../../assets/fonts/timeburnerbold.ttf');
+  }

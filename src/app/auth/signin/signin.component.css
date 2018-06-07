@@ -1,0 +1,13 @@
+.container {
+    padding: 100px 50px 170px 50px;
+    border-style: ridge;
+    border-color: rgba(0, 255, 170, 0.045);
+    overflow:hidden;
+    border-bottom-left-radius: 300px;
+    border-bottom-right-radius: 300px;
+}
+
+@font-face {
+    font-family: 'TimeBurnerBold';
+    src: url('../../../assets/fonts/timeburnerbold.ttf');
+  }

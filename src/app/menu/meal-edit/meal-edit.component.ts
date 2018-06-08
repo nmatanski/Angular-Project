@@ -38,7 +38,7 @@ export class MealEditComponent implements OnInit {
     //   this.recipeForm.value['name'],
     //   this.recipeForm.value['description'],
     //   this.recipeForm.value['imagePath'],
-    //   this.recipeForm.value['ingredients']);
+
     if (this.editMode) {
       this.mealService.updateMeal(this.id, this.mealForm.value);
     } else {
@@ -56,28 +56,16 @@ export class MealEditComponent implements OnInit {
   }
 
 
-  // onAddIngredient() {
-  //   (<FormArray>this.mealForm.get('ingredients')).push(
-  //     new FormGroup({
-  //       'name': new FormControl(null, Validators.required),
-  //       'amount': new FormControl(null, [
-  //         Validators.required,
-  //         Validators.pattern(/^[1-9]+[0-9]*$/)
-  //       ])
-  //     })
-  //   );
-  // }
 
-  // onDeleteIngredient(index: number) {
-  //   (<FormArray>this.mealForm.get('ingredients')).removeAt(index);
-  // }
+
+
 
   onCancel() {
     this.router.navigate(['../'], { relativeTo: this.route });
   }
 
   // getControls() {
-  //   return (<FormArray>this.mealForm.get('ingredients')).controls;
+
   // }
 
   private initForm() {
@@ -85,7 +73,6 @@ export class MealEditComponent implements OnInit {
     let mealImagePath = '';
     let mealDescription = '';
     let mealPrice = 0;
-    // let recipeIngredients = new FormArray([]);
 
     if (this.editMode) {
       const meal = this.mealService.getMeal(this.id);
@@ -93,19 +80,6 @@ export class MealEditComponent implements OnInit {
       mealImagePath = meal.imagePath;
       mealDescription = meal.description;
       mealPrice = meal.price;
-      // if (meal['ingredients']) {
-      //   for (let ingredient of meal.ingredients) {
-      //     recipeIngredients.push(
-      //       new FormGroup({
-      //         'name': new FormControl(ingredient.name, Validators.required),
-      //         'amount': new FormControl(ingredient.amount, [
-      //           Validators.required,
-      //           Validators.pattern(/^[1-9]+[0-9]*$/)
-      //         ])
-      //       })
-      //     );
-      //   }
-      // }
     }
 
     this.mealForm = new FormGroup({
@@ -113,7 +87,7 @@ export class MealEditComponent implements OnInit {
       'imagePath': new FormControl(mealImagePath, Validators.required),
       'description': new FormControl(mealDescription, Validators.required),
       'price': new FormControl(mealPrice, Validators.required)
-      // 'ingredients': recipeIngredients
+
     });
   }
 

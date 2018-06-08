@@ -10,10 +10,9 @@ import { AppRoutingModule } from '../app-routing.module';
 import { AuthService } from '../auth/auth.service';
 import { FooterComponent } from './footer/footer.component';
 import { FirebaseAuth } from '@firebase/auth-types';
-// import { AuthService } from '../auth/auth.service';
-// import { DataStorageService } from '../shared/data-storage.service';
+
 // import { RecipeService } from '../recipes/recipe.service';
-// import { ShoppingListService } from '../shopping-list/shopping-list.service';
+
 
 @NgModule({
   declarations: [

@@ -56,7 +56,6 @@ export class MealDetailComponent implements OnInit {
     //   this.recipeForm.value['name'],
     //   this.recipeForm.value['description'],
     //   this.recipeForm.value['imagePath'],
-    //   this.recipeForm.value['ingredients']);
     if (this.editMode) {
       this.cartService.updateCart(this.orderInfoForm.value);
     } else {
@@ -81,7 +80,6 @@ export class MealDetailComponent implements OnInit {
   //   let orderName: String = '';
   //   let orderAddress: String = '';
   //   let orderContactInfo: String = '';
-  //   // let recipeIngredients = new FormArray([]);
 
   //   if (this.editMode) {
   //     const order = this.cartService.getCart(this.id);
@@ -94,13 +92,10 @@ export class MealDetailComponent implements OnInit {
   //     'name': new FormControl(orderName, Validators.required),
   //     'address': new FormControl(orderAddress, Validators.required),
   //     'contactInfo': new FormControl(orderContactInfo, Validators.required)
-  //     // 'ingredients': recipeIngredients
   //   });
   // }
 
-  // onAddToShoppingList() {
-  //   this.mealService.addIngredientsToShoppingList(this.meal.ingredients);
-  // }
+
 
   onEditMeal() {
     this.router.navigate(['edit'], { relativeTo: this.route });

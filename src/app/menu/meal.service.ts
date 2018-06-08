@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 
-// import { Ingredient } from '../shared/ingredient.model';
-// import { ShoppingListService } from '../shopping-list/shopping-list.service';
+// import { ShoppingCartService } from '../shopping-list/shopping-list.service';
 import { Meal } from './meal.model';
 
 @Injectable()
@@ -24,7 +23,7 @@ export class MealService {
     )
   ];
 
-  constructor() { } // private slService: ShoppingListService
+  constructor() { } // private slService: ShoppingCartService ?
 
   setMenu(menu: Meal[]) {
     this.menu = menu;
@@ -39,8 +38,8 @@ export class MealService {
     return this.menu[index];
   }
 
-  // addIngredientsToShoppingList(ingredients: Ingredient[]) {
-  //   this.slService.addIngredients(ingredients);
+  // addMealToShoppingCart(meal: Meal[]) {
+  //   this.slService.addMeals(meals);
   // }
 
   addMeal(meal: Meal) {

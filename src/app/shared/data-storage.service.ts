@@ -34,9 +34,6 @@ export class DataStorageService {
           const menu: Meal[] = response.json();
           // tslint:disable-next-line:prefer-const
           // for (let meal of menu) {
-          //   if (!meal['ingredients']) {
-          //     meal['ingredients'] = [];
-          //   }
           // }
           return menu;
         }
@@ -54,12 +51,6 @@ export class DataStorageService {
       .map(
         (response: Response) => {
           const menu: Meal[] = response.json();
-          // tslint:disable-next-line:prefer-const
-          // for (let meal of menu) {
-          //   if (!meal['ingredients']) {
-          //     meal['ingredients'] = [];
-          //   }
-          // }
           return menu;
         }
       )
@@ -83,12 +74,6 @@ export class DataStorageService {
       .map(
         (response: Response) => {
           const cart: ShoppingCart[] = response.json();
-          // tslint:disable-next-line:prefer-const
-          // for (let meal of menu) {
-          //   if (!meal['ingredients']) {
-          //     meal['ingredients'] = [];
-          //   }
-          // }
           return cart;
         }
       )
@@ -105,12 +90,6 @@ export class DataStorageService {
     .map(
       (response: Response) => {
         const carts: ShoppingCart[] = response.json();
-        // tslint:disable-next-line:prefer-const
-        // for (let meal of menu) {
-        //   if (!meal['ingredients']) {
-        //     meal['ingredients'] = [];
-        //   }
-        // }
         return carts;
       }
     )

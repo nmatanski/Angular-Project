@@ -5,8 +5,10 @@
     <!-- <ul class="list-group">
       <a class="list-group-item" style="cursor: pointer" (click)="onFetchData()">View Cart</a>
     </ul> -->
-    <span *ngIf="loggedUser!='null'">(test) {{loggedUser}}'s Cart:</span>
+    <span *ngIf="isOK()">Hello {{loggedUser}}! The shopping cart is not implemented yet. Coming soon.</span>
+    <br><br>
     <div class="row" *ngIf="isAuthenticated()">
+      TEST TEST TEST
       <div class="col-xs-12" *ngFor="let order of orders">
         <div *ngIf="order.email == loggedUser">
           <div class="row">

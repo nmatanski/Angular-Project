@@ -57,6 +57,10 @@ export class ShoppingCartComponent implements OnInit {
     return this.authService.isAuthenticated();
   }
 
+  isOK() {
+    return this.loggedUser !== 'null' && this.isAuthenticated();
+  }
+
   // getEmail() {
   //   if (!this.isAuthenticated()) {
   //     console.log(this.authService.token === null ? 'the token is null' : 'the token is not null');

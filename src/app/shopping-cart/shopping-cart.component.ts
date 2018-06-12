@@ -39,6 +39,8 @@ export class ShoppingCartComponent implements OnInit {
     for (let index = 0; index < this.shoppingCartService.carts.length; index++) {
       this.orders.push(this.shoppingCartService.carts[index]);
     }
+    console.log('(test) ' + this.shoppingCartService);
+
     console.log('onInit local cart: ');
     console.log(this.orders);
 
